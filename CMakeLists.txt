@@ -12,12 +12,15 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set (
 	SOURCES
 	src/main.cpp
+	src/system/extractor.cpp
 )
 
 add_executable(
 	RPGMAndroidEmulator
 	${SOURCES}
 )
+
+find_package(libzip CONFIG REQUIRED)
 
 target_include_directories(
 	RPGMAndroidEmulator
@@ -29,6 +32,7 @@ target_link_directories(
 	RPGMAndroidEmulator
 	PRIVATE
 	external/raylib/lib
+	libzip::zip
 )
 
 target_link_libraries(

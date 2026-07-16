@@ -1,0 +1,5 @@
+{
+  "name": "rpgm-android-emulator",
+  "version": "0.1.0",
+  "dependencies": ["libzip"]
+}
