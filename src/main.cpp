@@ -1,9 +1,23 @@
 #include <raylib.h>
 
+#include "system/extractor.hpp"
+#include "engine/detect.hpp"
+
+namespace xtr = Extractor;
+namespace rpg = RPGM;
+
 class Emulator {
+private:
+	rpg::Engine trg_engine;
+
 public:
 	Emulator() {
 		InitWindow(800, 600, "RPGM Android Emulator");
+
+		xtr::Extractor::InitExtract(R"(C:\Users\pisto\Downloads\Parallel Relief EN 1.7.zip)");
+
+		trg_engine = rpg::DetectEngine(xtr::Extractor::GetArchive());
+		std::cout << static_cast<int>(trg_engine) << std::endl;
 	}
 
 	void Update() {

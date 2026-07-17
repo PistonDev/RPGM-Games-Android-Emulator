@@ -18,7 +18,7 @@ set (
 add_executable(
 	RPGMAndroidEmulator
 	${SOURCES}
-)
+ "src/engine/detect.cpp")
 
 find_package(libzip CONFIG REQUIRED)
 
@@ -32,13 +32,13 @@ target_link_directories(
 	RPGMAndroidEmulator
 	PRIVATE
 	external/raylib/lib
-	libzip::zip
 )
 
 target_link_libraries(
 	RPGMAndroidEmulator
 	PRIVATE
 	raylib
+	libzip::zip
 	opengl32
 	gdi32
 	winmm
